@@ -4,7 +4,8 @@ import {
   Navigate,
   Route,
   Routes,
-} from "react-router-dom";import Navbar from "./components/Navbar";
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import WorkPage from "./pages/WorkPage";
 import BlogPage from "./pages/BlogPage";
@@ -16,13 +17,15 @@ export default function App() {
       <div className="app-shell">
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/resume" element={<ResumePage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <div className="app-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/resume" element={<ResumePage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
 
         <footer className="site-footer">
           <div className="container footer-bottom">

@@ -1,10 +1,10 @@
 
 import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import avatar from "../public/me.image.jpg";
+const avatar = `${import.meta.env.BASE_URL}me.image.jpg`;
 import ProjectCard from "../components/ProjectCard";
 import SectionHeading from "../components/SectionHeading";
-import { experience, profile, projects } from "../data";
+import { profile, projects } from "../data";
 
 function SocialLink({ href, icon: Icon, label }) {
   if (!href) return null;
@@ -90,37 +90,13 @@ export default function HomePage() {
         />
 
         <div className="projects-grid">
-          {projects.slice(0, 2).map((project, index) => (
+          {projects.slice(0, 4).map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
 
         <Link className="text-link" to="/work">
           View all work <ArrowRight size={14} />
-        </Link>
-      </section>
-
-      <section className="section">
-        <SectionHeading
-          eyebrow="MY PATH"
-          title="Experience"
-          description="A short overview of my learning and professional background."
-        />
-
-        <div className="home-experience-list">
-          {experience.slice(0, 2).map((item) => (
-            <article className="home-experience-item" key={item.title}>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.organization}</p>
-              </div>
-              <span>{item.period}</span>
-            </article>
-          ))}
-        </div>
-
-        <Link className="text-link" to="/work">
-          Show all work experiences <ArrowRight size={14} />
         </Link>
       </section>
     </main>

@@ -2,19 +2,7 @@
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import ProjectCard from "../components/ProjectCard";
-import { experience, projects, skills } from "../data";
-
-const techIcons = {
-  JavaScript: "devicon-javascript-plain colored",
-  React: "devicon-react-original colored",
-  HTML: "devicon-html5-plain colored",
-  CSS: "devicon-css3-plain colored",
-  "Tailwind CSS": "devicon-tailwindcss-original colored",
-  "Node.js": "devicon-nodejs-plain colored",
-  "Express.js": "devicon-express-original",
-  MongoDB: "devicon-mongodb-plain colored",
-  "Git & GitHub": "devicon-github-original",
-};
+import { experience, projects } from "../data";
 
 export default function WorkPage() {
   return (
@@ -36,22 +24,6 @@ export default function WorkPage() {
                 <p className="work-role">{item.title}</p>
               </div>
               <span className="work-period">{item.period}</span>
-            </div>
-
-            <div className="work-tools">
-              <h3>Technologies & Tools</h3>
-              <div className="tech-logo-row">
-                {skills.slice(0, 6).map((skill) => (
-                  <span className="tech-logo" key={skill} title={skill}>
-                    {techIcons[skill] ? (
-                      <i className={techIcons[skill]} aria-hidden="true" />
-                    ) : (
-                      <span className="tech-fallback">{skill.slice(0, 2)}</span>
-                    )}
-                    <span className="tech-logo-name">{skill}</span>
-                  </span>
-                ))}
-              </div>
             </div>
 
             <h3 className="work-subheading">What I've done</h3>

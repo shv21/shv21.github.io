@@ -1,7 +1,7 @@
 
 import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-const avatar = `${import.meta.env.BASE_URL}me.image.jpg`;
+const avatar = `${import.meta.env.BASE_URL}me.image.png`;
 import ProjectCard from "../components/ProjectCard";
 import SectionHeading from "../components/SectionHeading";
 import { profile, projects } from "../data";

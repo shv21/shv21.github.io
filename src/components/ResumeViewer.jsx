@@ -39,7 +39,7 @@ function loadPdfJs() {
 }
 
 export default function ResumeViewer() {
-  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+  const resumeUrl = `${import.meta.env.BASE_URL}shivraj-jadhav.pdf`;
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const renderTaskRef = useRef(null);
@@ -186,7 +186,7 @@ export default function ResumeViewer() {
       <div className="viewer-toolbar">
         <div className="toolbar-fileinfo">
           <FileText size={16} className="toolbar-icon" />
-          <span className="toolbar-filename">resume.pdf</span>
+          <span className="toolbar-filename">shivraj-jadhav.pdf</span>
           <span className="toolbar-badge">
             {numPages} {numPages === 1 ? "page" : "pages"}
           </span>

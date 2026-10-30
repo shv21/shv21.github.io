@@ -1,7 +1,7 @@
 import { ArrowUpRight, Github } from "lucide-react";
 
 function ProjectLink({ href, children, label }) {
-  if (!href) return <span className="project-link disabled-link" title="Add the URL in src/data.js">{children}{label}</span>;
+  if (!href) return <span className="project-link disabled-link" title="No live demo available">{children}{label}</span>;
   return <a className="project-link" href={href} target="_blank" rel="noreferrer">{children}{label}</a>;
 }
 

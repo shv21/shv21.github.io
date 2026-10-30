@@ -351,7 +351,7 @@ export default function ResumeViewer() {
             <h4>Shivraj Jadhav — Professional Resume</h4>
             <p>
               Complete background covering Full-Stack Web Development, technical projects
-              (HaqSetu, News Pulse, Arachne OS), peer mentoring at NavGurukul, and certifications.
+              (CollabSphere, Email Scheduler, HaqSetu, Arachne-OS, News Pulse), peer mentoring at NavGurukul, and certifications.
             </p>
           </div>
         </div>

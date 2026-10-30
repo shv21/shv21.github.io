@@ -2,16 +2,16 @@
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import ProjectCard from "../components/ProjectCard";
-import { experience, projects } from "../data";
+import { experience, projects, skills } from "../data";
 
 export default function WorkPage() {
   return (
     <main className="container main-content page-content">
       <section className="section-heading">
-        <p className="eyebrow">BACKGROUND & PROJECTS</p>
-        <h1 className="page-title">Work Experience</h1>
+        <p className="eyebrow">BACKGROUND & SKILLS</p>
+        <h1 className="page-title">Work & Experience</h1>
         <p className="section-description">
-          My learning journey, experience, and projects across web development.
+          My engineering journey, peer mentoring, and hands-on technical competencies.
         </p>
       </section>
 
@@ -26,17 +26,28 @@ export default function WorkPage() {
               <span className="work-period">{item.period}</span>
             </div>
 
-            <h3 className="work-subheading">What I've done</h3>
+            <h3 className="work-subheading">Key Contributions</h3>
             <p className="work-description">{item.description}</p>
           </article>
         ))}
       </section>
 
+      <section className="skills-panel" style={{ marginTop: "28px", marginBottom: "40px" }}>
+        <div className="skills-heading">
+          <span className="eyebrow" style={{ color: "#d8f36a" }}>CORE TECHNOLOGIES & TOOLING</span>
+        </div>
+        <div className="tag-list skill-tags">
+          {skills.map((skill) => (
+            <span className="tag" key={skill}>{skill}</span>
+          ))}
+        </div>
+      </section>
+
       <section className="section">
         <SectionHeading
-          eyebrow="BUILT WHILE LEARNING"
-          title="Projects"
-          description="Projects where I practise concepts and build working interfaces."
+          eyebrow="ALL REPOSITORIES & BUILDS"
+          title="All Projects"
+          description="Curated applications spanning full-stack development, distributed message queues, generative AI, and computer vision."
         />
 
         <div className="projects-grid">

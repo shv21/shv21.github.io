@@ -47,14 +47,7 @@ export default function HomePage() {
 
   <p className="profile-bio">{profile.bio || profile.intro}</p>
 
-  <div className="currently-playing">
-    <span className="music-icon">♫</span>
-    <span>Currently listening</span>
-    <span className="playing-separator">—</span>
-    <span className="playing-track">
-      Add your favourite song · Artist name
-    </span>
-  </div>
+ 
 
   <div className="profile-socials">
     {[
@@ -85,18 +78,18 @@ export default function HomePage() {
       <section className="section">
         <SectionHeading
           eyebrow="SELECTED WORK"
-          title="Projects"
-          description="A few projects I've worked on while learning by building."
+          title="Featured Projects"
+          description="Curated applications spanning full-stack development, distributed message queues, generative AI, and computer vision."
         />
 
         <div className="projects-grid">
-          {projects.slice(0, 4).map((project, index) => (
+          {projects.slice(0, 6).map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
 
         <Link className="text-link" to="/work">
-          View all work <ArrowRight size={14} />
+          View all work ({projects.length}) <ArrowRight size={14} />
         </Link>
       </section>
     </main>

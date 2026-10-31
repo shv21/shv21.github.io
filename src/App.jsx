@@ -4,7 +4,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useLocation,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -12,22 +11,6 @@ import WorkPage from "./pages/WorkPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ResumePage from "./pages/ResumePage";
-
-function SiteFooter() {
-  const location = useLocation();
-  if (location.pathname === "/") return null;
-
-  return (
-    <footer className="site-footer">
-      <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Shivraj Jadhav</span>
-        <a href="#top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          Back to top ↑
-        </a>
-      </div>
-    </footer>
-  );
-}
 
 export default function App() {
   return (
@@ -46,7 +29,14 @@ export default function App() {
           </Routes>
         </div>
 
-        <SiteFooter />
+        <footer className="site-footer">
+          <div className="container footer-bottom">
+            <span>© {new Date().getFullYear()} Shivraj Jadhav</span>
+            <a href="#top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              Back to top ↑
+            </a>
+          </div>
+        </footer>
       </div>
     </HashRouter>
   );

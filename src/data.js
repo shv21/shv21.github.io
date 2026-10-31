@@ -33,6 +33,7 @@ export const profile = {
 export const projects = [
   {
     name: "CollabSphere",
+    date: "01.2025",
     type: "Full-Stack & AI Platform",
     description:
       "AI-powered developer collaboration platform featuring team workspaces, code sharing, architecture documentation, and Google Gemini AI integration for automated code analysis.",
@@ -40,9 +41,21 @@ export const projects = [
     status: "Production",
     github: "https://github.com/shv21/collabsphere",
     demo: "https://collabsphere-beta.vercel.app",
+    ui: {
+      url: "collabsphere-beta.vercel.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.55), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(56, 189, 248, 0.5), transparent 60%), linear-gradient(135deg, #18112c 0%, #0d1527 100%)",
+      glowColor: "#8b5cf6",
+      bgType: "dark",
+      badge: "Google Gemini AI",
+      heading: "Supercharge Developer Collaboration with AI",
+      subheading: "Real-time team workspaces, code sharing & automated architectural analysis",
+      accent: "#a78bfa",
+      stats: ["4 Active Devs", "98.4% Code Health"],
+    },
   },
   {
     name: "Email Scheduler & Queue Engine",
+    date: "10.2024",
     type: "Distributed Systems & Backend",
     description:
       "A scalable background email scheduling platform built with BullMQ delayed queues, Redis per-sender rate limiting, Google OAuth 2.0, PostgreSQL with Prisma ORM, and Bull Board queue monitoring.",
@@ -50,9 +63,21 @@ export const projects = [
     status: "Production",
     github: "https://github.com/shv21/email-scheduler",
     demo: "",
+    ui: {
+      url: "scheduler.redis.internal",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(244, 63, 94, 0.55), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(249, 115, 22, 0.45), transparent 60%), linear-gradient(135deg, #1f0b18 0%, #0f172a 100%)",
+      glowColor: "#f43f5e",
+      bgType: "dark",
+      badge: "BullMQ & Redis Engine",
+      heading: "Resilient Distributed Job Scheduler",
+      subheading: "Delayed message delivery with per-sender Redis token-bucket rate limits",
+      accent: "#fb7185",
+      stats: ["Delayed: 2,410", "Workers: 8 Active"],
+    },
   },
   {
     name: "HaqSetu",
+    date: "11.2024",
     type: "AI & Social Impact Web App",
     description:
       "A voice-first, multilingual platform (Hindi, Marathi, English) helping rural women and informal workers discover eligible government schemes with verified rule-based eligibility checks and document checklists.",
@@ -60,9 +85,21 @@ export const projects = [
     status: "Live",
     github: "https://github.com/shv21/HaqSetu",
     demo: "https://haq-setu.vercel.app",
+    ui: {
+      url: "haq-setu.vercel.app",
+      theme: "radial-gradient(ellipse at 85% 25%, rgba(245, 158, 11, 0.5), transparent 60%), radial-gradient(ellipse at 15% 75%, rgba(234, 88, 12, 0.45), transparent 60%), linear-gradient(135deg, #2a140d 0%, #160f1c 100%)",
+      glowColor: "#f59e0b",
+      bgType: "light",
+      badge: "बहुभाषी Voice AI",
+      heading: "From rights to welfare with हक़सेतु",
+      subheading: "Instant eligibility screening for rural women and informal workers",
+      accent: "#f59e0b",
+      stats: ["Hindi · Marathi · English", "100% Rule Verified"],
+    },
   },
   {
     name: "Arachne-OS",
+    date: "08.2024",
     type: "Web Desktop Operating System",
     description:
       "A web-based desktop environment featuring a distinctive spider-web aesthetic, custom window manager, draggable windows, desktop apps, interactive terminal, games, and audio player.",
@@ -70,9 +107,21 @@ export const projects = [
     status: "Live",
     github: "https://github.com/shv21/Arachne-OS",
     demo: "https://arachne-os.vercel.app/",
+    ui: {
+      url: "arachne-os.vercel.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(34, 197, 94, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(6, 182, 212, 0.45), transparent 60%), linear-gradient(135deg, #071913 0%, #040e0b 100%)",
+      glowColor: "#22c55e",
+      bgType: "dark",
+      badge: "Desktop Web Environment",
+      heading: "Arachne Cyber Desktop OS",
+      subheading: "Custom draggable window manager, retro shell terminal & media player",
+      accent: "#4ade80",
+      stats: ["shv@arachne:~$", "6 Apps Loaded"],
+    },
   },
   {
     name: "News Pulse",
+    date: "07.2024",
     type: "Full-Stack Python & Data Pipeline",
     description:
       "Automated news aggregation engine that gathers articles from global publishers (BBC, TechCrunch, Verge) via RSS pipelines, featuring hash-based deduplication, full-text search, and regional feeds.",
@@ -80,9 +129,21 @@ export const projects = [
     status: "Live",
     github: "https://github.com/shv21/news-dashboard",
     demo: "https://news-dashboard-psi-taupe.vercel.app",
+    ui: {
+      url: "news-dashboard-psi.vercel.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.45), transparent 60%), linear-gradient(135deg, #0d152c 0%, #080d1e 100%)",
+      glowColor: "#3b82f6",
+      bgType: "dark",
+      badge: "Automated Data Pipeline",
+      heading: "Real-Time Global News Aggregator",
+      subheading: "Live multi-source RSS scraping, hash deduplication and full-text search",
+      accent: "#60a5fa",
+      stats: ["BBC · TechCrunch · Verge", "Auto-Refresh Live"],
+    },
   },
   {
     name: "Two-Hand AR Portal",
+    date: "06.2024",
     type: "Computer Vision & AR",
     description:
       "A high-performance real-time Augmented Reality portal application using dual-hand gesture recognition to summon, manipulate, and smoothly blend video feeds into virtual environments.",
@@ -90,9 +151,21 @@ export const projects = [
     status: "Completed",
     github: "https://github.com/shv21/vc-effects",
     demo: "",
+    ui: {
+      url: "ar-portal.opencv.local",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(168, 85, 247, 0.45), transparent 60%), linear-gradient(135deg, #240c24 0%, #0d0615 100%)",
+      glowColor: "#ec4899",
+      bgType: "dark",
+      badge: "MediaPipe & OpenCV",
+      heading: "Spatial Dual-Hand AR Portal",
+      subheading: "21-landmark skeletal hand tracking for real-time video blending & portals",
+      accent: "#f472b6",
+      stats: ["Dual Hand Tracking", "60 FPS Processing"],
+    },
   },
   {
     name: "Student Feedback Manager",
+    date: "05.2024",
     type: "Full-Stack Web Application",
     description:
       "Real-time course and instructor evaluation platform for educational institutions and bootcamps, featuring interactive feedback forms and administrative review panels.",
@@ -100,9 +173,21 @@ export const projects = [
     status: "Live",
     github: "https://github.com/shv21/Student-Feedback-Manager",
     demo: "https://students-feedback-six.vercel.app",
+    ui: {
+      url: "students-feedback-six.vercel.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(20, 184, 166, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(14, 165, 233, 0.45), transparent 60%), linear-gradient(135deg, #071e1c 0%, #051416 100%)",
+      glowColor: "#14b8a6",
+      bgType: "light",
+      badge: "Course Analytics",
+      heading: "Course Evaluation & Feedback Hub",
+      subheading: "Interactive survey rating matrices and administrative sentiment analytics",
+      accent: "#2dd4bf",
+      stats: ["4.9 / 5.0 Rating", "Instant Aggregation"],
+    },
   },
   {
     name: "Prasad Kirana & CSP Banking",
+    date: "03.2024",
     type: "Hyperlocal Commerce",
     description:
       "Mobile-first digital storefront and banking services portal for a local neighborhood store in Pachod Kh., featuring catalog browsing and seamless WhatsApp direct ordering.",
@@ -110,9 +195,21 @@ export const projects = [
     status: "Live",
     github: "https://github.com/shv21/Prasad-kirana",
     demo: "https://Prasad-kirana.vercel.app",
+    ui: {
+      url: "prasad-kirana.vercel.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(234, 179, 8, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(34, 197, 94, 0.45), transparent 60%), linear-gradient(135deg, #1b1707 0%, #0b1509 100%)",
+      glowColor: "#eab308",
+      bgType: "light",
+      badge: "WhatsApp Direct Order",
+      heading: "Prasad Kirana & CSP Digital Point",
+      subheading: "Hyperlocal catalog browsing with one-tap WhatsApp ordering and banking hours",
+      accent: "#facc15",
+      stats: ["Pachod Kh. Store", "1-Tap WhatsApp"],
+    },
   },
   {
     name: "Sky-Nest-Drive",
+    date: "02.2024",
     type: "Collaborative Cloud Storage",
     description:
       "Cloud storage drive platform developed as a collaborative open-source team project; contributed the user authentication flow, registration validation, and session handling.",
@@ -120,6 +217,17 @@ export const projects = [
     status: "Collaborative",
     github: "https://github.com/aftabalam999/Sky-Nest-Drive",
     demo: "",
+    ui: {
+      url: "sky-nest-drive.app",
+      theme: "radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.5), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(56, 189, 248, 0.45), transparent 60%), linear-gradient(135deg, #0d162e 0%, #090e1c 100%)",
+      glowColor: "#6366f1",
+      bgType: "dark",
+      badge: "Team Cloud Drive",
+      heading: "Collaborative Cloud Storage Drive",
+      subheading: "JWT authentication, secure registration validation, and shared file spaces",
+      accent: "#818cf8",
+      stats: ["15 GB Free Drive", "Collaborative Repo"],
+    },
   },
 ];
 

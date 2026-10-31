@@ -3,12 +3,31 @@ export const profile = {
   name: "Shivraj Jadhav",
   role: "Full-Stack Developer",
   location: "Maharashtra, India",
+  tagline: "Trying to do big things with code",
+  status: "Active · Currently building",
+  views: "25,112",
   intro:
     "Full-stack developer building robust web applications, distributed backend systems, and AI-enabled developer tools with React, Node.js, JavaScript, and Python.",
   email: "shivraj25@navgurukul.org",
   github: "https://github.com/shv21",
   linkedin: "https://www.linkedin.com/in/shivraj/",
   twitter: "https://x.com/shvraj21",
+  about: [
+    "I'm a builder who's still figuring things out, but doing it by creating along the way. I enjoy working at the intersection of AI and real-world impact; whether it's building systems, experimenting with LLMs, or turning ideas into something real.",
+    "At my core, I'm curious not just about technology, but about how it shapes the way people think, act, and grow. That curiosity pushes me beyond just coding into exploring meaning and purpose.",
+    "I don't see growth as just skills or achievements, but as becoming more aware, disciplined, and aligned with what I'm doing, and that's something I'm continuously working on.",
+  ],
+  spotify: {
+    track: "Starboy",
+    artist: "The Weeknd, Daft Punk",
+    status: "Last played",
+    time: "Today, 10:45 AM",
+    albumArt: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=120&h=120&fit=crop&crop=faces&auto=format&q=80",
+  },
+  quote: {
+    text: "I was not born with a whole lot of natural talent... but I work hard and I never give up.",
+    author: "ROCK LEE",
+  },
 };
 
 export const projects = [
@@ -106,18 +125,51 @@ export const projects = [
 
 export const experience = [
   {
-    title: "Web Development Learner & Peer Mentor",
-    organization: "NavGurukul — Dharamshala campus",
-    period: "Current learning",
+    organization: "NavGurukul — Education Technology",
+    role: "English Facilitator & Peer Mentor",
+    location: "Dharamshala, Himachal Pradesh",
+    period: "2025 – Present",
+    type: "Mentorship",
     description:
-      "Building full-stack web applications, studying distributed systems, and mastering modern JavaScript, React, Node.js, and database engineering.",
+      "Facilitated 50+ learning sessions for 20+ learners, supporting English communication, code troubleshooting, and peer technical problem-solving.",
+    stack: ["JavaScript", "React", "Node.js", "Peer Mentoring", "Problem Solving"],
   },
   {
-    title: "English Facilitator",
-    organization: "NavGurukul",
-    period: "Experience",
+    organization: "Open Source & Engineering Projects",
+    role: "Full-Stack Project Developer",
+    location: "Remote",
+    period: "2024 – Present",
+    type: "Independent",
     description:
-      "Mentored peers in technical communication and English language fluency to support software engineering teamwork and project presentations.",
+      "Architected production systems including CollabSphere (Gemini AI developer collaboration platform), Email Scheduler (BullMQ/Redis queue engine), and HaqSetu (Voice AI welfare access).",
+    stack: ["TypeScript", "Redis", "BullMQ", "PostgreSQL", "MongoDB", "Python"],
+  },
+];
+
+export const education = [
+  {
+    institution: "NavGurukul",
+    location: "Dharamshala, Himachal Pradesh",
+    degree: "Full-Stack Web Development",
+    period: "2025 – Present",
+    description:
+      "Intensive software engineering immersion focusing on JavaScript (ES6+), React, Node.js, Express, MongoDB, database architecture, and distributed backend systems.",
+  },
+  {
+    institution: "Maharashtra State Board",
+    location: "Maharashtra, India",
+    degree: "Higher Secondary Certificate (Class XII)",
+    period: "2024 – 2026",
+    description:
+      "Senior secondary education with focus on science, mathematics, computer applications, and analytical problem-solving.",
+  },
+  {
+    institution: "Baroda High School / Secondary School",
+    location: "India",
+    degree: "Secondary School Certificate",
+    period: "Completed",
+    description:
+      "Foundational academics with strong interest in mathematics, logic, and computer science fundamentals.",
   },
 ];
 

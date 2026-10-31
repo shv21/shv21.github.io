@@ -1435,4 +1435,692 @@ code { color: #c3d98a; font: 10px "DM Mono", monospace; }
   margin-bottom: 20px;
 }
 
+/* ============================================================
+   BLUEPRINT TACTICAL PORTFOLIO THEME (Reference Design)
+   ============================================================ */
+
+.blueprint-page-wrapper {
+  min-height: 100vh;
+  padding: 30px 16px 80px;
+  background-color: #090a0c;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.blueprint-container {
+  max-width: 680px;
+  margin-inline: auto;
+  border: 1px solid #1f2024;
+  border-radius: 6px;
+  background: #0d0e11;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+.blueprint-section {
+  position: relative;
+  padding: 26px 24px;
+  border-bottom: 1px solid #1f2024;
+}
+
+.blueprint-section:last-of-type {
+  border-bottom: none;
+}
+
+.corner-crosshair {
+  position: absolute;
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3e4148;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.corner-crosshair.top-left {
+  top: -7px;
+  left: -5px;
+}
+
+.corner-crosshair.top-right {
+  top: -7px;
+  right: -5px;
+}
+
+.corner-crosshair.bottom-left {
+  bottom: -7px;
+  left: -5px;
+}
+
+.corner-crosshair.bottom-right {
+  bottom: -7px;
+  right: -5px;
+}
+
+/* 1. Hero Blueprint Header */
+.blueprint-profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+}
+
+.blueprint-avatar-col {
+  flex-shrink: 0;
+}
+
+.blueprint-avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #2e3035;
+  background: #141518;
+}
+
+.blueprint-profile-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blueprint-symbol {
+  font-size: 14px;
+  color: #88898e;
+  margin-bottom: 3px;
+}
+
+.blueprint-name-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.blueprint-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #f5f5f5;
+}
+
+.blueprint-tagline {
+  margin: 4px 0 8px;
+  color: #929397;
+  font-size: 12.5px;
+}
+
+.blueprint-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #7b7e84;
+  font: 11px "DM Mono", monospace;
+}
+
+.live-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #46c773;
+  box-shadow: 0 0 8px rgba(70, 199, 115, 0.7);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.blueprint-views-stat {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: #65676c;
+  font: 11px "DM Mono", monospace;
+  white-space: nowrap;
+}
+
+/* 2. Section Titles & Blueprint Headers */
+.blueprint-section-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #eaeaea;
+}
+
+.blueprint-section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.blueprint-section-header-row .blueprint-section-title {
+  margin: 0;
+}
+
+.blueprint-view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #8c8e93;
+  font-size: 11.5px;
+  transition: color 0.18s ease;
+}
+
+.blueprint-view-all-link:hover {
+  color: #d8f36a;
+}
+
+/* 3. About Section */
+.about-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.about-bullet-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.about-bullet-dot {
+  color: #d8f36a;
+  font-size: 14px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.about-bullet-text {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #a8a9ad;
+}
+
+/* Spotify Card */
+.spotify-capsule-wrapper {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.spotify-capsule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #232528;
+  background: #111215;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.spotify-album-art {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #282a2e;
+}
+
+.spotify-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.spotify-status-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font: 10px "DM Mono", monospace;
+  color: #7b7e84;
+}
+
+.spotify-sound-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1db954;
+}
+
+.spotify-track-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f0f0f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-artist-name {
+  margin: 0;
+  font-size: 11px;
+  color: #8c8d91;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-logo-col {
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.spotify-time-stamp {
+  font: 10px "DM Mono", monospace;
+  color: #55575c;
+}
+
+/* 4. Connect Section */
+.connect-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.connect-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid #222427;
+  border-radius: 7px;
+  background: #121316;
+  color: #c0c1c4;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.18s, transform 0.18s, color 0.18s, background 0.18s;
+}
+
+.connect-pill:hover {
+  border-color: #4a4d54;
+  color: #ffffff;
+  background: #17181c;
+  transform: translateY(-2px);
+}
+
+/* 5. GitHub Heatmap Grid */
+.github-heatmap-container {
+  border: 1px solid #1f2125;
+  border-radius: 8px;
+  padding: 16px;
+  background: #101114;
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.heatmap-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #7b7e84;
+  font: 10.5px "DM Mono", monospace;
+}
+
+.heatmap-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #46c773;
+}
+
+.heatmap-scroll-area {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.heatmap-months-row {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 32px;
+  margin-bottom: 7px;
+  font: 10px "DM Mono", monospace;
+  color: #65676c;
+  min-width: 520px;
+}
+
+.heatmap-matrix-wrapper {
+  display: flex;
+  gap: 8px;
+  min-width: 520px;
+}
+
+.heatmap-days-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font: 9.5px "DM Mono", monospace;
+  color: #55575c;
+  width: 24px;
+  height: 80px;
+  padding: 2px 0;
+}
+
+.heatmap-grid {
+  display: flex;
+  gap: 3px;
+  height: 84px;
+}
+
+.heatmap-week-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.heatmap-cell {
+  width: 9.5px;
+  height: 9.5px;
+  border-radius: 2px;
+  background: #16181b;
+  transition: transform 0.12s ease;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.25);
+  z-index: 2;
+}
+
+.heatmap-cell.level-0 {
+  background: #16181b;
+}
+
+.heatmap-cell.level-1 {
+  background: #0e4429;
+}
+
+.heatmap-cell.level-2 {
+  background: #006d32;
+}
+
+.heatmap-cell.level-3 {
+  background: #26a641;
+}
+
+.heatmap-cell.level-4 {
+  background: #39d353;
+  box-shadow: 0 0 6px rgba(57, 211, 83, 0.4);
+}
+
+.heatmap-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #1a1b1f;
+  font: 10.5px "DM Mono", monospace;
+  color: #7b7e84;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heatmap-legend .heatmap-cell {
+  pointer-events: none;
+}
+
+/* 6. Experience & Education Cards */
+.experience-cards-list,
+.education-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.experience-entry-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.entry-bullet-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entry-bullet-mark {
+  color: #d8f36a;
+  font-size: 13px;
+}
+
+.entry-org-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #dbdcde;
+}
+
+.blueprint-item-subcard {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid #202225;
+  border-radius: 8px;
+  background: #111215;
+  transition: border-color 0.18s ease;
+}
+
+.blueprint-item-subcard:hover {
+  border-color: #3b3d43;
+}
+
+.subcard-icon-col {
+  flex-shrink: 0;
+  color: #7a7c81;
+  margin-top: 2px;
+}
+
+.subcard-code-icon {
+  color: #8c8e93;
+}
+
+.subcard-edu-icon {
+  color: #a8b97a;
+}
+
+.subcard-content-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.subcard-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subcard-role-title {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.subcard-toggle-icon {
+  color: #55575c;
+  flex-shrink: 0;
+}
+
+.subcard-meta-line {
+  margin: 4px 0 8px;
+  color: #7d8085;
+  font: 11px "DM Mono", monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.meta-sep {
+  color: #4b4d52;
+}
+
+.subcard-description {
+  margin: 0 0 10px;
+  color: #9b9c9f;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.subcard-tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tech-badge-pill {
+  padding: 2.5px 7px;
+  border: 1px solid #242629;
+  border-radius: 4px;
+  background: #16171a;
+  color: #8f9196;
+  font: 10px "DM Mono", monospace;
+}
+
+/* 7. Quote Section */
+.quote-blueprint-section {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.blueprint-quote-box {
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.quote-giant-marks {
+  font-size: 44px;
+  color: #44474e;
+  line-height: 1;
+  font-family: Georgia, serif;
+  margin-bottom: 12px;
+}
+
+.quote-italic-text {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-style: italic;
+  color: #cfd0d4;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.quote-author-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  color: #7b7e84;
+}
+
+.quote-dash {
+  color: #4b4d52;
+}
+
+.quote-author-name {
+  color: #8f9298;
+}
+
+/* 8. Blueprint Footer */
+.blueprint-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  border-top: 1px solid #1f2024;
+}
+
+.footer-left-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 12px;
+  color: #8c8e93;
+  font-weight: 500;
+}
+
+.footer-love {
+  margin: 0;
+  font-size: 11px;
+  color: #5c5e63;
+}
+
+.pixel-sleeping-cat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cat-bubbles {
+  font: 9px "DM Mono", monospace;
+  color: #6e7075;
+  letter-spacing: 2px;
+  margin-bottom: -2px;
+  animation: float-zzz 3s infinite ease-in-out;
+}
+
+@keyframes float-zzz {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.9; transform: translateY(-3px); }
+}
+
+.cat-svg {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .blueprint-section {
+    padding: 20px 16px;
+  }
+
+  .blueprint-profile-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .blueprint-views-stat {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .blueprint-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+
 

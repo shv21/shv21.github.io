@@ -25,9 +25,9 @@ function XIcon({ size = 16, className }) {
 
 export default function HomePage() {
   return (
-    <main className="container main-content homepage-sections-container">
+    <main className="container main-content">
       {/* ================= HERO / PROFILE HEADER ================= */}
-      <section id="top" className="section-card section-card-hero">
+      <section id="top" className="hero profile-hero">
         <div className="profile-identity">
           <img
             className="profile-avatar"
@@ -101,7 +101,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= SELECTED WORK ================= */}
-      <section className="section-card section-card-projects">
+      <section className="section">
         <SectionHeading
           eyebrow="SELECTED WORK"
           title="Featured Projects"
@@ -120,7 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= GITHUB ACTIVITY ================= */}
-      <section className="section-card section-card-github">
+      <section className="section">
         <SectionHeading
           eyebrow="OPEN SOURCE & COMMITS"
           title="GitHub Activity"
@@ -131,7 +131,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= EXPERIENCE ================= */}
-      <section className="section-card section-card-experience">
+      <section className="section">
         <SectionHeading
           eyebrow="CAREER & MENTORSHIP"
           title="Experience"
@@ -176,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= EDUCATION ================= */}
-      <section className="section-card section-card-education">
+      <section className="section">
         <SectionHeading
           eyebrow="ACADEMICS & TRAINING"
           title="Education"
@@ -220,7 +220,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= WRITING & NOTES ================= */}
-      <section className="section-card section-card-articles">
+      <section className="section">
         <SectionHeading
           eyebrow="WRITING & NOTES"
           title="Latest Articles"
@@ -239,7 +239,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= CURRICULUM VITAE ================= */}
-      <section className="section-card section-card-resume">
+      <section className="section">
         <SectionHeading
           eyebrow="CURRICULUM VITAE"
           title="Resume & Credentials"

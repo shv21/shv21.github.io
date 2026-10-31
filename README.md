@@ -1,7 +1,5 @@
 # Shivraj Jadhav — Portfolio
 
-A responsive, dark portfolio inspired by the screenshots you shared. Built with Vite, React, Tailwind CSS, and Lucide icons. The visual styling is intentionally custom CSS layered with Tailwind utilities.
-
 ## Requirements
 - Node.js 18.18+ (Node.js 20 LTS recommended)
 - npm

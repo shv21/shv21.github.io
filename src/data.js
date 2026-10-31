@@ -7,7 +7,7 @@ export const profile = {
     "Full-stack developer building robust web applications, distributed backend systems, and AI-enabled developer tools with React, Node.js, TypeScript, and Python.",
   email: "shivrajjadhav2123@gmail.com",
   github: "https://github.com/shv21",
-  linkedin: "", // Add your LinkedIn profile URL if desired
+  linkedin: "https://www.linkedin.com/in/shivraj/",
 };
 
 export const projects = [

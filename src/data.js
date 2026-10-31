@@ -5,9 +5,10 @@ export const profile = {
   location: "Maharashtra, India",
   intro:
     "Full-stack developer building robust web applications, distributed backend systems, and AI-enabled developer tools with React, Node.js, TypeScript, and Python.",
-  email: "shivrajjadhav2123@gmail.com",
+  email: "shivraj25@navgurukul.org",
   github: "https://github.com/shv21",
   linkedin: "https://www.linkedin.com/in/shivraj/",
+  twitter: "https://x.com/shvraj21",
 };
 
 export const projects = [

@@ -2239,5 +2239,138 @@ code { color: #c3d98a; font: 10px "DM Mono", monospace; }
   }
 }
 
+/* ============================================================
+   HOMEPAGE SECTION CARDS (Themed Dark Backgrounds)
+   ============================================================ */
 
+.homepage-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 36px;
+  padding-bottom: 72px;
+}
 
+.section-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 32px 30px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* 1. Hero / Profile Header — Midnight Indigo / Slate */
+.section-card-hero {
+  background: radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
+              linear-gradient(180deg, #10121a 0%, #0c0d13 100%);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.06);
+}
+.section-card-hero:hover {
+  border-color: rgba(99, 102, 241, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(99, 102, 241, 0.12);
+}
+
+/* 2. Featured Projects — Deep Emerald & Teal */
+.section-card-projects {
+  background: radial-gradient(circle at 90% 0%, rgba(20, 184, 166, 0.12) 0%, transparent 60%),
+              linear-gradient(180deg, #0a1413 0%, #070e0d 100%);
+  border: 1px solid rgba(20, 184, 166, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-projects:hover {
+  border-color: rgba(20, 184, 166, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(20, 184, 166, 0.12);
+}
+.section-card-projects .eyebrow {
+  color: #2dd4bf;
+}
+
+/* 3. GitHub Activity — Cyber Green / Matrix */
+.section-card-github {
+  background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.11) 0%, transparent 65%),
+              linear-gradient(180deg, #09130d 0%, #060d09 100%);
+  border: 1px solid rgba(34, 197, 94, 0.24);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-github:hover {
+  border-color: rgba(57, 211, 83, 0.4);
+  box-shadow: 0 14px 36px -10px rgba(34, 197, 94, 0.12);
+}
+.section-card-github .eyebrow {
+  color: #4ade80;
+}
+.section-card-github .github-heatmap-container {
+  background: rgba(10, 18, 13, 0.7);
+  border-color: rgba(34, 197, 94, 0.22);
+}
+
+/* 4. Experience — Warm Amber & Bronze */
+.section-card-experience {
+  background: radial-gradient(circle at 12% 10%, rgba(245, 158, 11, 0.12) 0%, transparent 60%),
+              linear-gradient(180deg, #151109 0%, #0e0b06 100%);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-experience:hover {
+  border-color: rgba(245, 158, 11, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(245, 158, 11, 0.12);
+}
+.section-card-experience .eyebrow {
+  color: #fbbf24;
+}
+
+/* 5. Education — Royal Violet & Amethyst */
+.section-card-education {
+  background: radial-gradient(circle at 88% 10%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+              linear-gradient(180deg, #130c1b 0%, #0c0712 100%);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-education:hover {
+  border-color: rgba(168, 85, 247, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(168, 85, 247, 0.12);
+}
+.section-card-education .eyebrow {
+  color: #c084fc;
+}
+
+/* 6. Writing & Notes — Sapphire & Sky Blue */
+.section-card-articles {
+  background: radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+              linear-gradient(180deg, #09121d 0%, #060b13 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-articles:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(56, 189, 248, 0.12);
+}
+.section-card-articles .eyebrow {
+  color: #38bdf8;
+}
+
+/* 7. Curriculum Vitae — Deep Crimson & Rose */
+.section-card-resume {
+  background: radial-gradient(circle at 85% 0%, rgba(244, 63, 94, 0.11) 0%, transparent 60%),
+              linear-gradient(180deg, #150b10 0%, #0e070a 100%);
+  border: 1px solid rgba(244, 63, 94, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.section-card-resume:hover {
+  border-color: rgba(244, 63, 94, 0.38);
+  box-shadow: 0 14px 36px -10px rgba(244, 63, 94, 0.12);
+}
+.section-card-resume .eyebrow {
+  color: #fb7185;
+}
+
+@media (max-width: 640px) {
+  .homepage-sections-container {
+    gap: 20px;
+    padding-top: 20px;
+  }
+  .section-card {
+    padding: 24px 18px;
+    border-radius: 14px;
+  }
+}

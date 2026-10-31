@@ -133,17 +133,7 @@ export const experience = [
     description:
       "Facilitated 50+ learning sessions for 20+ learners, supporting English communication, code troubleshooting, and peer technical problem-solving.",
     stack: ["JavaScript", "React", "Node.js", "Peer Mentoring", "Problem Solving"],
-  },
-  {
-    organization: "Open Source & Engineering Projects",
-    role: "Full-Stack Project Developer",
-    location: "Remote",
-    period: "2024 – Present",
-    type: "Independent",
-    description:
-      "Architected production systems including CollabSphere (Gemini AI developer collaboration platform), Email Scheduler (BullMQ/Redis queue engine), and HaqSetu (Voice AI welfare access).",
-    stack: ["TypeScript", "Redis", "BullMQ", "PostgreSQL", "MongoDB", "Python"],
-  },
+  }
 ];
 
 export const education = [
@@ -162,15 +152,7 @@ export const education = [
     period: "2024 – 2026",
     description:
       "Senior secondary education with focus on science, mathematics, computer applications, and analytical problem-solving.",
-  },
-  {
-    institution: "Baroda High School / Secondary School",
-    location: "India",
-    degree: "Secondary School Certificate",
-    period: "Completed",
-    description:
-      "Foundational academics with strong interest in mathematics, logic, and computer science fundamentals.",
-  },
+  }
 ];
 
 export const skills = [

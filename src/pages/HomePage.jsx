@@ -1,5 +1,5 @@
 
-import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 const avatar = `${import.meta.env.BASE_URL}me.image.png`;
 import ProjectCard from "../components/ProjectCard";
@@ -56,6 +56,15 @@ export default function HomePage() {
 
       <div className="profile-meta">
         <span>{profile.role}</span>
+        {profile.location && (
+          <>
+            <span className="meta-dot">·</span>
+            <span className="profile-location">
+              <MapPin size={12} style={{ display: "inline", marginRight: "3px", verticalAlign: "-1px" }} />
+              {profile.location}
+            </span>
+          </>
+        )}
         <span className="meta-dot">·</span>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </div>

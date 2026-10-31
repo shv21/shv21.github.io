@@ -4,7 +4,7 @@ export const profile = {
   role: "Full-Stack Developer",
   location: "Maharashtra, India",
   intro:
-    "Full-stack developer building robust web applications, distributed backend systems, and AI-enabled developer tools with React, Node.js, TypeScript, and Python.",
+    "Full-stack developer building robust web applications, distributed backend systems, and AI-enabled developer tools with React, Node.js, JavaScript, and Python.",
   email: "shivraj25@navgurukul.org",
   github: "https://github.com/shv21",
   linkedin: "https://www.linkedin.com/in/shivraj/",

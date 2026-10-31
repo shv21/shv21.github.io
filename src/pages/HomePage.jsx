@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const avatar = `${import.meta.env.BASE_URL}me.image.png`;
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
+import ResumeViewer from "../components/ResumeViewer";
 import SectionHeading from "../components/SectionHeading";
 import { blogs, profile, projects } from "../data";
 
@@ -109,6 +110,20 @@ export default function HomePage() {
 
         <Link className="text-link" to="/blog">
           View all blogs ({blogs.length}) <ArrowRight size={14} />
+        </Link>
+      </section>
+
+      <section className="section">
+        <SectionHeading
+          eyebrow="CURRICULUM VITAE"
+          title="Resume & Credentials"
+          description="View, zoom, or download my official resume covering full-stack web development, projects, and mentoring experience."
+        />
+
+        <ResumeViewer />
+
+        <Link className="text-link" to="/resume">
+          Open dedicated resume page <ArrowRight size={14} />
         </Link>
       </section>
     </main>

@@ -138,3 +138,42 @@ export const skills = [
   "Git & GitHub",
   "Vercel Deployment",
 ];
+
+export const blogs = [
+  {
+    id: "bullmq-redis-scheduler",
+    title: "Architecting a Resilient Email Scheduler with BullMQ & Redis",
+    date: "Oct 2024",
+    readTime: "5 min read",
+    description:
+      "Deep dive into delayed job processing, per-sender rate limiting, and PostgreSQL persistence with Prisma ORM for high-throughput distributed systems.",
+    tags: ["Redis", "BullMQ", "PostgreSQL", "Node.js", "TypeScript"],
+  },
+  {
+    id: "haqsetu-voice-accessibility",
+    title: "Building HaqSetu: Voice-First & Multilingual Welfare Access",
+    date: "Sep 2024",
+    readTime: "4 min read",
+    description:
+      "Lessons in speech accessibility and Web Speech API integration to help rural citizens navigate government welfare schemes in Hindi, Marathi, and English.",
+    tags: ["React", "Web Speech API", "Accessibility", "Tailwind CSS"],
+  },
+  {
+    id: "vanilla-js-window-manager",
+    title: "Designing a Window Manager from Scratch in Vanilla JavaScript",
+    date: "Aug 2024",
+    readTime: "6 min read",
+    description:
+      "How I built Arachne-OS: managing window state, draggable frames, desktop icons, and interactive terminal apps without external UI frameworks.",
+    tags: ["JavaScript", "DOM Manipulation", "CSS Architecture"],
+  },
+  {
+    id: "gemini-ai-developer-workspace",
+    title: "Integrating Google Gemini AI into Developer Workspaces",
+    date: "Jul 2024",
+    readTime: "4 min read",
+    description:
+      "Practical strategies for automated code review, context chunking, and technical documentation generation in CollabSphere.",
+    tags: ["Gemini AI", "Developer Tools", "Full-Stack"],
+  },
+];

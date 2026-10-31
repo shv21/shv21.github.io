@@ -3,8 +3,9 @@ import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 const avatar = `${import.meta.env.BASE_URL}me.image.png`;
 import ProjectCard from "../components/ProjectCard";
+import BlogCard from "../components/BlogCard";
 import SectionHeading from "../components/SectionHeading";
-import { profile, projects } from "../data";
+import { blogs, profile, projects } from "../data";
 
 function SocialLink({ href, icon: Icon, label }) {
   if (!href) return null;
@@ -83,13 +84,31 @@ export default function HomePage() {
         />
 
         <div className="projects-grid">
-          {projects.slice(0, 6).map((project, index) => (
+          {projects.slice(0, 4).map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
 
         <Link className="text-link" to="/work">
           View all work ({projects.length}) <ArrowRight size={14} />
+        </Link>
+      </section>
+
+      <section className="section">
+        <SectionHeading
+          eyebrow="WRITING & NOTES"
+          title="Latest Articles"
+          description="Technical writeups, architectural deep-dives, and notes from my engineering projects."
+        />
+
+        <div className="blogs-grid">
+          {blogs.slice(0, 3).map((blog, index) => (
+            <BlogCard key={blog.id || blog.title} blog={blog} index={index} />
+          ))}
+        </div>
+
+        <Link className="text-link" to="/blog">
+          View all blogs ({blogs.length}) <ArrowRight size={14} />
         </Link>
       </section>
     </main>

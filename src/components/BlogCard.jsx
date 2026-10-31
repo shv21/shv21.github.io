@@ -18,7 +18,15 @@ export default function BlogCard({ blog, index }) {
         </div>
       </div>
 
-      <h3 className="blog-card-title">{blog.title}</h3>
+      <h3 className="blog-card-title">
+        <Link
+          to={`/blog/${blog.id}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          {blog.title}
+        </Link>
+      </h3>
 
       <p className="blog-card-desc">{blog.description}</p>
 
@@ -28,7 +36,11 @@ export default function BlogCard({ blog, index }) {
             <span className="tag" key={tag}>{tag}</span>
           ))}
         </div>
-        <Link className="blog-read-link" to="/blog">
+        <Link
+          className="blog-read-link"
+          to={`/blog/${blog.id}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           Read article <ArrowUpRight size={14} />
         </Link>
       </div>

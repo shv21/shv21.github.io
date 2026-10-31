@@ -149,6 +149,63 @@ export const blogs = [
     description:
       "Deep dive into delayed job processing, per-sender rate limiting, and PostgreSQL persistence with Prisma ORM for high-throughput distributed systems.",
     tags: ["Redis", "BullMQ", "PostgreSQL", "Node.js", "TypeScript"],
+    intro:
+      "Scheduling background tasks like email notifications may look deceptively simple with standard timers or cron jobs. However, in production environments, server restarts, worker crashes, third-party mail provider limits, and network hiccups can easily trigger duplicate sends or dropped jobs. Here is how I architected a distributed email scheduler using Redis, BullMQ, and PostgreSQL.",
+    sections: [
+      {
+        heading: "1. The Pitfalls of In-Memory Timers",
+        paragraphs: [
+          "When starting out, it is tempting to reach for setTimeout or node-cron. The fundamental issue with in-memory scheduling is lack of durability: whenever your container restarts, spins down, or scales to multiple instances, all queued timers evaporate into thin air.",
+          "By shifting state to Redis sorted sets (ZSET), jobs are indexed by their future execution timestamp (Unix epoch in milliseconds). Workers constantly poll for jobs whose score is less than or equal to current time, ensuring durability across server restarts.",
+        ],
+        note: "Redis sorted sets enable zero-loss delayed job scheduling even during rolling container deployments.",
+      },
+      {
+        heading: "2. Setting Up BullMQ Delayed Queues",
+        paragraphs: [
+          "BullMQ builds upon Redis with robust primitives for delayed execution, job retry policies, and parent-child dependencies. Below is the core dispatch configuration implemented in the backend:",
+        ],
+        code: `import { Queue, Worker } from 'bullmq';
+
+const connection = { host: process.env.REDIS_HOST, port: 6379 };
+
+// Producer: Adding delayed emails
+export const emailQueue = new Queue('email-queue', { connection });
+
+export async function scheduleEmail(payload, delayMs) {
+  return await emailQueue.add('send-email', payload, {
+    delay: delayMs,
+    attempts: 5,
+    backoff: {
+      type: 'exponential',
+      delay: 3000,
+    },
+    removeOnComplete: true,
+  });
+}`,
+        language: "typescript",
+      },
+      {
+        heading: "3. Per-Sender Token Bucket Rate Limiting",
+        paragraphs: [
+          "Third-party SMTP relays (like SendGrid or AWS SES) enforce strict sending limits per second. If a user schedules 5,000 marketing emails for 9:00 AM, firing them all simultaneously guarantees IP blacklisting or 429 Too Many Requests errors.",
+          "We integrated Redis-based rate limiting on a per-sender basis, metering throughput smoothly across available worker threads and returning deterministic progress to the user dashboard.",
+        ],
+      },
+      {
+        heading: "4. Database Sync with Prisma & Bull Board",
+        paragraphs: [
+          "While Redis handles transient queue states, PostgreSQL acts as the immutable source of truth. Every job state transition (Scheduled, In-Flight, Sent, Failed) updates a corresponding database record via Prisma ORM.",
+          "For observability, we mounted Bull Board on an authenticated administrative route, providing real-time metrics on throughput, error backtraces, and manual retry controls.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Never rely on in-memory timers for mission-critical jobs; use Redis sorted sets.",
+      "Always configure exponential backoff retries to handle transient SMTP hiccups.",
+      "Enforce sender-level rate limiting to safeguard IP reputation and SMTP quotas.",
+      "Maintain PostgreSQL as the source of truth for delivery audit logs and metrics.",
+    ],
   },
   {
     id: "haqsetu-voice-accessibility",
@@ -158,6 +215,60 @@ export const blogs = [
     description:
       "Lessons in speech accessibility and Web Speech API integration to help rural citizens navigate government welfare schemes in Hindi, Marathi, and English.",
     tags: ["React", "Web Speech API", "Accessibility", "Tailwind CSS"],
+    intro:
+      "Over 70% of rural and informal workers in India qualify for essential government welfare programs, yet millions never receive benefits due to language barriers, complex bureaucratic portals, and low digital literacy. HaqSetu was created to make scheme discovery effortless through voice-first, multilingual guidance in Hindi, Marathi, and English.",
+    sections: [
+      {
+        heading: "1. Designing for Digital Inclusion",
+        paragraphs: [
+          "Users in rural communities often navigate the web entirely on low-end smartphones with intermittent connectivity. Traditional dashboards packed with small text, nested menus, and PDF forms create immediate friction.",
+          "In HaqSetu, we stripped away bureaucratic jargon in favor of large, readable cards, step-by-step visual indicators, and native voice search that accepts colloquial phrasing.",
+        ],
+      },
+      {
+        heading: "2. Speech Recognition in Regional Dialects",
+        paragraphs: [
+          "Using the browser-native Web Speech API, we implemented continuous speech recognition configured to regional language codes (mr-IN for Marathi, hi-IN for Hindi, and en-IN for English):",
+        ],
+        code: `const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+export function initializeVoiceListener(languageCode, onResult, onError) {
+  if (!SpeechRecognition) {
+    onError("Speech recognition not supported in this browser.");
+    return null;
+  }
+  const recognition = new SpeechRecognition();
+  recognition.lang = languageCode; // 'hi-IN' | 'mr-IN' | 'en-IN'
+  recognition.interimResults = false;
+  
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    onResult(transcript);
+  };
+  return recognition;
+}`,
+        language: "javascript",
+      },
+      {
+        heading: "3. Rule-Based Eligibility Engine vs LLMs",
+        paragraphs: [
+          "While LLMs are versatile, welfare eligibility requires strict accuracy: a single hallucinated income threshold or age limit could mislead a citizen. We chose a deterministic, rule-based matching engine that evaluates age, occupation, gender, and income criteria against verified government criteria.",
+        ],
+        note: "For legal and welfare requirements, deterministic rule engines eliminate hallucination risks completely.",
+      },
+      {
+        heading: "4. Fraud Safety & Document Checklists",
+        paragraphs: [
+          "Scams targeting informal workers with fake application fees are rampant. HaqSetu highlights explicit fraud advisories for every scheme and generates a printable, color-coded document checklist (Aadhaar, income certificate, bank passbook) so applicants arrive prepared.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Voice interfaces remove literacy barriers and bridge the digital divide.",
+      "Deterministic rule engines guarantee accuracy for critical eligibility assessments.",
+      "Actionable document checklists prevent repeated visits to administrative offices.",
+      "Explicit fraud safety alerts protect vulnerable applicants from opportunistic scams.",
+    ],
   },
   {
     id: "vanilla-js-window-manager",
@@ -167,6 +278,63 @@ export const blogs = [
     description:
       "How I built Arachne-OS: managing window state, draggable frames, desktop icons, and interactive terminal apps without external UI frameworks.",
     tags: ["JavaScript", "DOM Manipulation", "CSS Architecture"],
+    intro:
+      "Modern web development relies heavily on hefty UI frameworks and modal packages for everyday interactions. For Arachne-OS, I wanted to dive deep into browser fundamentals and build an entire operating system desktop interface inside the browser using nothing but pure HTML5, CSS3, and Vanilla JavaScript.",
+    sections: [
+      {
+        heading: "1. The Stacking Context & Window State",
+        paragraphs: [
+          "In a desktop environment, multiple windows can be open, dragged, focused, minimized, or maximized simultaneously. Managing this requires a centralized window manager that tracks highest z-index layers and focus coordinates.",
+          "Each window is instantiated with clean data attributes for coordinates, initial dimensions, and an active focus state that promotes it to the foreground on mousedown.",
+        ],
+      },
+      {
+        heading: "2. Zero-Lag Dragging via Pointer Events",
+        paragraphs: [
+          "Early implementations with basic mouse events suffered from cursor slipping when dragging rapidly. Switching to bound event listeners on the document during active drag operations ensured butter-smooth motion:",
+        ],
+        code: `export function makeDraggable(win, header) {
+  let startX = 0, startY = 0, initialX = 0, initialY = 0;
+
+  header.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    bringToFront(win);
+    startX = e.clientX;
+    startY = e.clientY;
+    initialX = win.offsetLeft;
+    initialY = win.offsetTop;
+
+    function onMouseMove(moveEvent) {
+      const dx = moveEvent.clientX - startX;
+      const dy = moveEvent.clientY - startY;
+      win.style.left = \`\${initialX + dx}px\`;
+      win.style.top = \`\${initialY + dy}px\`;
+    }
+
+    function onMouseUp() {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+}`,
+        language: "javascript",
+      },
+      {
+        heading: "3. Modular Built-in Applications",
+        paragraphs: [
+          "An OS is only as interesting as its software. Arachne-OS features a fully interactive Terminal emulator with custom commands (help, cat, clear, theme, matrix), a retro audio synthesizer, system monitor, and customizable desktop icons.",
+          "Every app runs in an isolated container conforming to lifecycle hooks (open, close, minimize, resize), demonstrating structured software design without framework crutches.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Mastering DOM event listeners and CSS stacking contexts builds confidence in core JavaScript.",
+      "Cleaning up global event listeners on mouseup prevents memory leaks and unintended behavior.",
+      "Decoupled window management logic allows adding new apps effortlessly.",
+    ],
   },
   {
     id: "gemini-ai-developer-workspace",
@@ -176,5 +344,52 @@ export const blogs = [
     description:
       "Practical strategies for automated code review, context chunking, and technical documentation generation in CollabSphere.",
     tags: ["Gemini AI", "Developer Tools", "Full-Stack"],
+    intro:
+      "Engineering teams frequently struggle with fragmented context spread across disjointed GitHub pull requests, scattered README files, and Slack chats. In CollabSphere, I integrated Google Gemini AI directly into our developer collaboration workspace to automate code analysis and generate structured architectural documentation on the fly.",
+    sections: [
+      {
+        heading: "1. Structuring Repository Context for AI Models",
+        paragraphs: [
+          "Feeding raw code dumps into LLMs often leads to token truncation or generic explanations. We designed a context-preparation pipeline that scans file trees, extracts function signatures and docstrings, and feeds structured JSON schemas into Google Gemini.",
+        ],
+      },
+      {
+        heading: "2. Automated Architecture & Code Analysis",
+        paragraphs: [
+          "Using the official Google Generative AI SDK, we configured Gemini 1.5 to perform multi-stage evaluations: detecting security vulnerabilities, highlighting anti-patterns, and summarizing system architecture:",
+        ],
+        code: `import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash",
+  generationConfig: { temperature: 0.2 },
+});
+
+export async function analyzeCode(fileContent, fileName) {
+  const prompt = \`You are an expert software architect. Analyze the following source file (\${fileName}) for:
+1. Architectural patterns
+2. Potential security or performance bottlenecks
+3. Concise documentation overview:
+
+\${fileContent}\`;
+
+  const result = await model.generateContent(prompt);
+  return result.response.text();
+}`,
+        language: "javascript",
+      },
+      {
+        heading: "3. Streaming Responses for Fast Developer UX",
+        paragraphs: [
+          "Because analyzing comprehensive files can take several seconds, streaming chunks back to the client via Server-Sent Events (SSE) ensures developers see insights appearing instantly in their editor panel rather than staring at a static loading spinner.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Lower model temperature (0.2) delivers consistent, analytical code reviews.",
+      "Pre-filtering comments and AST tokens preserves context window efficiency.",
+      "Streaming responses significantly enhances developer perception of speed.",
+    ],
   },
 ];

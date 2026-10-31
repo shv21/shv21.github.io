@@ -4,7 +4,6 @@ const avatar = `${import.meta.env.BASE_URL}me.image.png`;
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
 import GithubHeatmap from "../components/GithubHeatmap";
-import ResumeViewer from "../components/ResumeViewer";
 import SectionHeading from "../components/SectionHeading";
 import { blogs, education, experience, profile, projects } from "../data";
 
@@ -238,20 +237,6 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* ================= CURRICULUM VITAE ================= */}
-      <section className="section">
-        <SectionHeading
-          eyebrow="CURRICULUM VITAE"
-          title="Resume & Credentials"
-          description="View, zoom, or download my official resume covering full-stack web development, projects, and mentoring experience."
-        />
-
-        <ResumeViewer />
-
-        <Link className="text-link" to="/resume">
-          Open dedicated resume page <ArrowRight size={14} />
-        </Link>
-      </section>
     </main>
   );
 }

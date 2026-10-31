@@ -1758,16 +1758,17 @@ code { color: #c3d98a; font: 10px "DM Mono", monospace; }
 .github-heatmap-container {
   border: 1px solid #1f2125;
   border-radius: 8px;
-  padding: 16px;
+  padding: 14px 16px;
   background: #101114;
   position: relative;
+  overflow: hidden;
 }
 
 .heatmap-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .heatmap-account-link {
@@ -1807,45 +1808,57 @@ code { color: #c3d98a; font: 10px "DM Mono", monospace; }
 
 .heatmap-scroll-area {
   overflow-x: auto;
+  overflow-y: hidden !important;
   position: relative;
-  padding-bottom: 4px;
+  padding: 2px 0 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important; /* Hide scrollbars in Firefox */
+  -ms-overflow-style: none !important; /* Hide scrollbars in IE/Edge */
+}
+
+/* Hide scrollbars completely across Chrome, Safari, Edge */
+.heatmap-scroll-area::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .heatmap-inner-canvas {
-  min-width: 730px;
+  width: 100%;
+  min-width: 580px;
   position: relative;
 }
 
 .heatmap-months-track {
   position: relative;
-  height: 16px;
-  margin-bottom: 6px;
+  height: 15px;
+  margin-bottom: 4px;
 }
 
 .heatmap-month-tag {
   position: absolute;
-  font: 10px "DM Mono", monospace;
+  font: 9.5px "DM Mono", monospace;
   color: #7d8590;
   white-space: nowrap;
 }
 
 .heatmap-matrix-wrapper {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .heatmap-days-col {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  width: 24px;
+  gap: 2.3px;
+  width: 20px;
 }
 
 .heatmap-day-label {
-  height: 10px;
-  font: 9px "DM Mono", monospace;
+  height: 8.2px;
+  font: 8.5px "DM Mono", monospace;
   color: #65676c;
-  line-height: 10px;
+  line-height: 8.2px;
 }
 
 .heatmap-day-label.empty {
@@ -1854,28 +1867,29 @@ code { color: #c3d98a; font: 10px "DM Mono", monospace; }
 
 .heatmap-grid {
   display: flex;
-  gap: 3px;
+  gap: 2.3px;
 }
 
 .heatmap-week-col {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2.3px;
 }
 
 .heatmap-cell {
-  width: 10px;
-  height: 10px;
+  width: 8.2px;
+  height: 8.2px;
   border-radius: 2px;
   background: #161b22;
   outline: 1px solid rgba(255, 255, 255, 0.04);
   outline-offset: -1px;
   transition: transform 0.12s ease, outline 0.12s ease;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .heatmap-cell:hover {
-  transform: scale(1.3);
+  transform: scale(1.35);
   z-index: 10;
   outline: 1px solid #ffffff;
 }

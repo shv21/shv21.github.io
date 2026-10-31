@@ -127,7 +127,7 @@ export default function GithubHeatmap() {
               <span
                 key={`${m.name}-${m.weekIndex}`}
                 className="heatmap-month-tag"
-                style={{ left: `${32 + m.weekIndex * 13}px` }}
+                style={{ left: `${26 + m.weekIndex * 10.5}px` }}
               >
                 {m.name}
               </span>
